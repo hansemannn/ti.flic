@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+architectures: armv7 arm64 i386 x86_64
+description: ti.flic
+author: Hans Knoechel
+license: Apache 2.0
+copyright: Copyright (c) 2016 by Hans Knoechel
+
+# these should not be edited
+name: ti.flic
+moduleid: ti.flic
+guid: 217e0fd5-c0c4-413c-bafe-803226fb139a
+platform: iphone
+minsdk: 5.0.0
