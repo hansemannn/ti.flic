@@ -8,4 +8,4 @@
 //
 FRAMEWORK_SEARCH_PATHS=$(SRCROOT)/../../modules/iphone/ti.flic/1.0.0/platform "~/Library/Application\ Support/Titanium/modules/iphone/ti.flic/1.0.0/platform"
 
-OTHER_LDFLAGS = $(inherited) -framework fliclib
+OTHER_LDFLAGS = $(inherited) -framework fliclib -Wnon-modular-include-in-framework-module
