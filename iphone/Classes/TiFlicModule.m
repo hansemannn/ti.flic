@@ -72,6 +72,8 @@
 
 - (void)configure:(id)args
 {
+    ENSURE_SINGLE_ARG(args, NSDictionary);
+    
     NSString *appID;
     NSString *appSecret;
     
