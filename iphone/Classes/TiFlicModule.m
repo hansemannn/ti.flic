@@ -28,7 +28,7 @@
 	return @"217e0fd5-c0c4-413c-bafe-803226fb139a";
 }
 
-- (NSString*)moduleId
+- (NSString *)moduleId
 {
 	return @"ti.flic";
 }
@@ -56,7 +56,7 @@
 
 #pragma mark Notification Observer
 
-- (void)didHandleURL:(NSNotification*)notification
+- (void)didHandleURL:(NSNotification *)notification
 {
     NSString *url = [[[TiApp app] launchOptions] objectForKey:@"url"];
     
@@ -232,7 +232,7 @@
 
 #pragma mark Utilities
 
-+ (NSDictionary*)dictionaryFromFlickButton:(SCLFlicButton*)button andError:( NSError* _Nullable)error
++ (NSDictionary *)dictionaryFromFlickButton:(SCLFlicButton *)button andError:( NSError* _Nullable)error
 {
     // TODO: Move to own proxy so we can connect/disconnect manually
     return @{
