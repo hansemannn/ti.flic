@@ -71,13 +71,19 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
 | BLUETOOTH_STATE_UNSUPPORTED | bluetoothState |
 | BLUETOOTH_STATE_UNAUTHORIZED | bluetoothState |
 | BLUETOOTH_STATE_UNKNOWN | bluetoothState |
-| CONNECTION_STATE_CONNECTED | <Event>.connectionState |
-| CONNECTION_STATE_CONNECTING | <Event>.connectionState |
-| CONNECTION_STATE_DISCONNECTED | <Event>.connectionState |
-| CONNECTION_STATE_DISCONNECTING | <Event>.connectionState |
-| TRIGGER_BEHAVIOR_CLICK_AND_HOLD | <Event>.triggerBehavior |
-| TRIGGER_BEHAVIOR_CLICK_AND_DOUBLE_CLICK | <Event>.triggerBehavior |
-| TRIGGER_BEHAVIOR_CLICK_AND_DOUBLE_CLICK_AND_HOLD | <Event>.triggerBehavior |
+
+The following constants are available in the `knownButtons` property and the 
+events `didDisconnectWithError`, `didFailToConnectWithError` and `didUpdateRSSI`:
+
+| Constant | Property |
+|----------|----------|
+| CONNECTION_STATE_CONNECTED | connectionState |
+| CONNECTION_STATE_CONNECTING | connectionState |
+| CONNECTION_STATE_DISCONNECTED | connectionState |
+| CONNECTION_STATE_DISCONNECTING | connectionState |
+| TRIGGER_BEHAVIOR_CLICK_AND_HOLD | triggerBehavior |
+| TRIGGER_BEHAVIOR_CLICK_AND_DOUBLE_CLICK | triggerBehavior |
+| TRIGGER_BEHAVIOR_CLICK_AND_DOUBLE_CLICK_AND_HOLD | triggerBehavior |
 
 ## Example
 Please check the `/example/app.js` for an example featuring all API's.
