@@ -24,6 +24,7 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
 
 ## Features
 ### Methods
+
 | Name | Arguments | Return Type |
 |------|-----------|-------------|
 | configure | args (Object: appID (String), appSecret (String) |  |
@@ -35,12 +36,14 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
 | forgetButton | UUID (String) |  |
 
 ### Properties
+
 | Name | Type |
 |------|------|
 | bluetoothState | Number |
 | knownButtons | Array |
 
 ### Events
+
 | Name |
 |------|
 | didReceiveButtonDown |
@@ -57,6 +60,24 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
 | didChangeBluetoothState |
 | didRestoreState |
 | didForgetButton |
+
+### Constants
+
+| Constant | Property |
+|----------|----------|
+| BLUETOOTH_STATE_POWERED_ON | bluetoothState |
+| BLUETOOTH_STATE_POWERED_OFF | bluetoothState |
+| BLUETOOTH_STATE_RESETTING | bluetoothState |
+| BLUETOOTH_STATE_UNSUPPORTED | bluetoothState |
+| BLUETOOTH_STATE_UNAUTHORIZED | bluetoothState |
+| BLUETOOTH_STATE_UNKNOWN | bluetoothState |
+| CONNECTION_STATE_CONNECTED | <Event>.connectionState |
+| CONNECTION_STATE_CONNECTING | <Event>.connectionState |
+| CONNECTION_STATE_DISCONNECTED | <Event>.connectionState |
+| CONNECTION_STATE_DISCONNECTING | <Event>.connectionState |
+| TRIGGER_BEHAVIOR_CLICK_AND_HOLD | <Event>.triggerBehavior |
+| TRIGGER_BEHAVIOR_CLICK_AND_DOUBLE_CLICK | <Event>.triggerBehavior |
+| TRIGGER_BEHAVIOR_CLICK_AND_DOUBLE_CLICK_AND_HOLD | <Event>.triggerBehavior |
 
 ## Example
 Please check the `/example/app.js` for an example featuring all API's.
