@@ -27,7 +27,7 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
 
 | Name | Arguments | Return Type |
 |------|-----------|-------------|
-| configure | args (Object: appID (String), appSecret (String) |  |
+| configure | args (Object: appID (String), appSecret (String), backgroundExecution (Boolean) |  |
 | grabFlicFromFlicAppWithCallbackUrlScheme | url (String) |  |
 | enable |  |  |
 | disable |  |  |
