@@ -1,10 +1,10 @@
 # 🔘 Ti.Flic
 
-**This module is highly work in progress and should not be used in any productional environment!**
-
  Summary
 ---------------
 Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's Titanium Mobile. 
+
+<img width="800" src="https://abload.de/img/flic-buttonsxrswu.png">
 
 ## Requirements
 - Titanium Mobile SDK 5.0.0.GA or later
