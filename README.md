@@ -20,7 +20,25 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
     <string>bluetooth-central</string>
 </array>
 ```
-3. That's it! Everything else mentioned in the [official iOS tutorial](https://partners.flic.io/partners/developers/ios-tutorial) is done by the module already!
+3. Add the url-scheme of your app to the plist-section of your `tiapp.xml`:
+```js
+<key>CFBundleURLTypes</key>
+<array>
+<dict>
+    <key>CFBundleURLName</key>
+    <string>com.company.yourappid</string>
+    <key>CFBundleURLSchemes</key>
+    <array>
+        <string>yourAppURL</string>
+    </array>
+</dict>
+</array>
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>flic20</string>
+</array>
+
+4. That's it! Everything else mentioned in the [official iOS tutorial](https://partners.flic.io/partners/developers/ios-tutorial) is done by the module already!
 
 ## Features
 ### Methods
