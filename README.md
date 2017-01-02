@@ -12,15 +12,17 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
 - Xcode 7 or later
 
 ## Setup
-1. Optain your API key from the [Flic Developer Console](https://partners.flic.io/partners/developers/credentials)
-2. Add the following background-modes to the plist-section of your `tiapp.xml`:
+- [x] Optain your API key from the [Flic Developer Console](https://partners.flic.io/partners/developers/credentials)
+- [x] Add the following background-modes to the plist-section of your `tiapp.xml`:
+
 ```xml
 <key>UIBackgroundModes</key>
 <array>
     <string>bluetooth-central</string>
 </array>
 ```
-3. Add the url-scheme of your app to the plist-section of your `tiapp.xml`:
+
+- [x] Add the url-scheme of your app to the plist-section of your `tiapp.xml`:
 ```xml
 <key>CFBundleURLTypes</key>
 <array>
@@ -38,7 +40,7 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
     <string>flic20</string>
 </array>
 ```
-4. That's it! Everything else mentioned in the [official iOS tutorial](https://partners.flic.io/partners/developers/ios-tutorial) is done by the module already!
+- [x] That's it! Everything else mentioned in the [official iOS tutorial](https://partners.flic.io/partners/developers/ios-tutorial) is done by the module already!
 
 ## Features
 ### Methods
