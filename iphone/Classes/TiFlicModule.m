@@ -234,6 +234,17 @@
 
 + (NSDictionary *)dictionaryFromFlickButton:(SCLFlicButton *)button andError:( NSError* _Nullable)error
 {
+    if (button == nil) {
+        return @{};
+    }
+    
+    if (error != nil) {
+        return @{
+            @"error": [error localizedDescription],
+            @"isReady": NUMBOOL(NO)
+        };
+    }
+    
     // TODO: Move to own proxy so we can connect/disconnect manually
     return @{
          @"identifier": button.buttonIdentifier.UUIDString,
@@ -244,8 +255,7 @@
          @"lowLatency": NUMBOOL(button.lowLatency),
          @"triggerBehavior": NUMINTEGER(button.triggerBehavior),
          @"pressCount": NUMINT(button.pressCount),
-         @"isReady": NUMBOOL(button.isReady),
-         @"error": [error localizedDescription] ?: [NSNull null]
+         @"isReady": NUMBOOL(button.isReady)
     };
 }
 
