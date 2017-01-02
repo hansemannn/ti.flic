@@ -21,7 +21,7 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
 </array>
 ```
 3. Add the url-scheme of your app to the plist-section of your `tiapp.xml`:
-```js
+```xml
 <key>CFBundleURLTypes</key>
 <array>
 <dict>
