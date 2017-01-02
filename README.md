@@ -37,7 +37,7 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
 <array>
     <string>flic20</string>
 </array>
-
+```
 4. That's it! Everything else mentioned in the [official iOS tutorial](https://partners.flic.io/partners/developers/ios-tutorial) is done by the module already!
 
 ## Features
