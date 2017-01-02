@@ -8,18 +8,17 @@ var btn = Ti.UI.createButton({
     title: 'Configure Flic'
 });
 
-btn.addEventListener('click', function() {
-	
-	/**
-	 @discussion Configures the Flic API. Do not call this method twice or you
-	 will receive multiple handled URL's. 
+btn.addEventListener('click', function() {	
+       /**
+   	@discussion Configures the Flic API. Do not call this method twice or you
+        will receive multiple handled URL's. 
 	 
-	 @param appId The app-id of your Flic-App (required).
-	 @param appId The app-secret of your Flic-App (required).
-	 @param appId Determine wether or not the background execution should be  used (optional).
-	 */
-    Flic.configure({
-		appID: '<MY_App_ID>',
+   	@param appId The app-id of your Flic-App (required).
+   	@param appId The app-secret of your Flic-App (required).
+   	@param appId Determine wether or not the background execution should be  used (optional).
+    	*/
+	Flic.configure({
+        	appID: '<MY_App_ID>',
 		appSecret: '<MY_APP_SECRET>',
 		backgroundExecution: true // Default: false, must have BLE comfigured
 	});
@@ -54,7 +53,7 @@ win.open();
  @discussion More API's (unused)
  */
 function grabFlicFromFlicAppWithCallbackUrlScheme() {
-	Flic.grabFlicFromFlicAppWithCallbackUrlScheme('<URL-SCHEME>');
+	Flic.grabFlicFromFlicAppWithCallbackUrlScheme('<YOUR-URL-SCHEME>');
 }
 
 function enableManager() {
