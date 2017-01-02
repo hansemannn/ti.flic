@@ -54,7 +54,12 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
 | disable |  |  |
 | onLocationChange |  |  |
 | isEnabled |  | Boolean |
+| getButtonByUUID | UUID (String) | Object |
+| connectButton | UUID (String) |  |
+| disconnectButton | UUID (String) |  |
 | forgetButton | UUID (String) |  |
+| indicateButtonLED | UUID (String) |  |
+| readButtonRSSI | UUID (String) |  |
 
 ### Properties
 

@@ -138,22 +138,93 @@
     return knownButtons;
 }
 
+#pragma mark Flic Button methods
+
+// TODO: Move all of these in own proxy
+
+- (NSDictionary *)getButtonByUUID:(id)value
+{
+    ENSURE_SINGLE_ARG(value, NSString);
+    
+    SCLFlicButton *flicButton = [self flicButtonFromUUIDString:value];
+    
+    if (!flicButton) {
+        NSLog(@"[ERROR] Could not get button with UUID = %@, the button does not seem to be active and connected.");
+        return;
+    }
+    
+    return [TiFlicModule dictionaryFromFlickButton:flicButton andError:nil];
+    
+}
+
 - (void)forgetButton:(id)value
 {
     ENSURE_SINGLE_ARG(value, NSString);
     
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:value];
+    SCLFlicButton *flicButton = [self flicButtonFromUUIDString:value];
     
-    for (SCLFlicButton *button in [[SCLFlicManager sharedManager] knownButtons]) {
-        if ([button buttonIdentifier] == uuid) {
-            [[SCLFlicManager sharedManager] forgetButton:button];
-            RELEASE_TO_NIL(uuid);
-            return;
-        }
+    if (!flicButton) {
+        NSLog(@"[ERROR] Could not forget button with UUID = %@, the button does not seem to be active and connected.");
+        return;
     }
     
-    RELEASE_TO_NIL(uuid);
-    NSLog(@"[ERROR] Could not find (known) button with identifier %@", uuid.UUIDString);
+    [[SCLFlicManager sharedManager] forgetButton:flicButton];
+}
+
+- (void)connectButton:(id)value
+{
+    ENSURE_SINGLE_ARG(value, NSString);
+    
+    SCLFlicButton *flicButton = [self flicButtonFromUUIDString:value];
+    
+    if (!flicButton) {
+        NSLog(@"[ERROR] Could not connect to button with UUID = %@, the button does not seem to be reachable.");
+        return;
+    }
+    
+    [flicButton connect];
+}
+
+- (void)disconnectButton:(id)value
+{
+    ENSURE_SINGLE_ARG(value, NSString);
+    
+    SCLFlicButton *flicButton = [self flicButtonFromUUIDString:value];
+    
+    if (!flicButton) {
+        NSLog(@"[ERROR] Could not disconnect from button with UUID = %@, the button does not seem to be reachable.");
+        return;
+    }
+    
+    [flicButton disconnect];
+}
+
+- (void)indicateButtonLED:(id)value
+{
+    ENSURE_SINGLE_ARG(value, NSNumber);
+    
+    SCLFlicButton *flicButton = [self flicButtonFromUUIDString:value];
+    
+    if (!flicButton) {
+        NSLog(@"[ERROR] Could not indicate LED from button with UUID = %@, the button does not seem to be reachable.");
+        return;
+    }
+    
+    [flicButton indicateLED:[TiFlicModule numbertoIndicateCount:value]];
+}
+
+- (void)readButtonRSSI:(id)value
+{
+    ENSURE_SINGLE_ARG(value, NSString);
+    
+    SCLFlicButton *flicButton = [self flicButtonFromUUIDString:value];
+    
+    if (!flicButton) {
+        NSLog(@"[ERROR] Could not read RSSI from button with UUID = %@, the button does not seem to be reachable.");
+        return;
+    }
+    
+    [flicButton readRSSI];
 }
 
 #pragma mark ButtonDelegates
@@ -231,6 +302,48 @@
 }
 
 #pragma mark Utilities
+
+- (SCLFlicButton *)flicButtonFromUUIDString:(NSString *)UUIDString
+{
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:UUIDString];
+    
+    for (SCLFlicButton *button in [[SCLFlicManager sharedManager] knownButtons]) {
+        if ([button buttonIdentifier] == uuid) {
+            RELEASE_TO_NIL(uuid);
+            return button;
+        }
+    }
+    
+    NSLog(@"[ERROR] Could not find Flic button with UUID = %@. Make sure it is reachable.", UUIDString);
+    
+    return nil;
+}
+
++ (SCLFlicButtonLEDIndicateCount)numbertoIndicateCount:(NSNumber *)number
+{
+    int count = [TiUtils intValue:number def:-1];
+    
+    if (count < 1 || count > 5) {
+        NSLog(@"[ERROR] Invalid number (%i) supplied. Please choose a number between 1 and 5.");
+        return nil;
+    }
+    
+    switch (count) {
+        case 1:
+        return SCLFlicButtonLEDIndicateCount1;
+        case 2:
+        return SCLFlicButtonLEDIndicateCount2;
+        case 3:
+        return SCLFlicButtonLEDIndicateCount3;
+        case 4:
+        return SCLFlicButtonLEDIndicateCount4;
+        case 5:
+        return SCLFlicButtonLEDIndicateCount5;
+        default:
+        NSLog(@"[ERROR] Logic error! Please report an issue to the Ti.Flic repository!");
+        return nil;
+    }
+}
 
 + (NSDictionary *)dictionaryFromFlickButton:(SCLFlicButton *)button andError:( NSError* _Nullable)error
 {
