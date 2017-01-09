@@ -2,4 +2,4 @@ FRAMEWORK_SEARCH_PATHS=$(SRCROOT)/../../modules/iphone/ti.flic/1.0.0/platform "~
 
 LD_RUNPATH_SEARCH_PATHS=$(inherited) "@executable_path/Frameworks" $(FRAMEWORK_SEARCH_PATHS)
 
-OTHER_LDFLAGS = $(inherited) -framework fliclib -Wnon-modular-include-in-framework-module
+OTHER_LDFLAGS = $(inherited) -framework CoreBluetooth -framework fliclib -Wnon-modular-include-in-framework-module
