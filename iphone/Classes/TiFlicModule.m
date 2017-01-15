@@ -131,7 +131,9 @@
 {
     NSMutableArray *knownButtons = [NSMutableArray array];
     
-    for (SCLFlicButton* button in [[SCLFlicManager sharedManager] knownButtons]) {
+    
+    for (NSUUID *uuid in [[SCLFlicManager sharedManager] knownButtons]) {
+        SCLFlicButton *button = [[[SCLFlicManager sharedManager] knownButtons] objectForKey:uuid];
         [knownButtons addObject:[TiFlicModule dictionaryFromFlickButton:button andError:nil]];
     }
     
@@ -305,15 +307,18 @@
 
 - (SCLFlicButton *)flicButtonFromUUIDString:(NSString *)UUIDString
 {
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:UUIDString];
+    NSUUID *ownUUID = [[NSUUID alloc] initWithUUIDString:UUIDString];
     
-    for (SCLFlicButton *button in [[SCLFlicManager sharedManager] knownButtons]) {
-        if ([button buttonIdentifier] == uuid) {
-            RELEASE_TO_NIL(uuid);
+    for (NSUUID *uuid in [[SCLFlicManager sharedManager] knownButtons]) {
+        SCLFlicButton *button = [[[SCLFlicManager sharedManager] knownButtons] objectForKey:uuid];
+        
+        if ([button buttonIdentifier] == ownUUID) {
+            RELEASE_TO_NIL(ownUUID);
             return button;
         }
     }
     
+    RELEASE_TO_NIL(ownUUID);
     NSLog(@"[ERROR] Could not find Flic button with UUID = %@. Make sure it is reachable.", UUIDString);
     
     return nil;
