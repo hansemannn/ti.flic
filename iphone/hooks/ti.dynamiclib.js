@@ -8,6 +8,8 @@ Array.prototype.last = Array.prototype.last || function () {
 
 exports.id = 'ti.dynamiclib';
 exports.cliVersion = '>=3.2';
+exports.moduleVersion = '1.1.0';
+
 exports.init = function (logger, config, cli, appc) {
 	cli.on('build.ios.xcodeproject', {
 		pre: function (data) {
@@ -43,7 +45,7 @@ exports.init = function (logger, config, cli, appc) {
 function addLibrary(builder, cli, xobjs) {
 
 	var frameworkPaths = [
-		'../../modules/iphone/ti.flic/1.0.2/platform/fliclib.framework'
+		'../../modules/iphone/ti.flic/'+ exports.moduleVersion + '/platform/fliclib.framework'
 	];
 
 	frameworkPaths.forEach(function (framework_path) {

@@ -60,6 +60,8 @@ Ti.Flic is an open-source project to support the Flic iOS-SDK in Appcelerator's 
 | forgetButton | UUID (String) |  |
 | indicateButtonLED | UUID (String) |  |
 | readButtonRSSI | UUID (String) |  |
+| updateButtonTriggerBehavior | UUID (String), triggerBehavior (Number) |  |
+| updateButtonLowLatencyMode | UUID (String), enableLowLatency (Boolean) |  |
 
 ### Properties
 

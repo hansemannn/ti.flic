@@ -159,6 +159,46 @@
     
 }
 
+- (void)updateButtonTriggerBehavior:(id)args
+{
+    ENSURE_ARG_COUNT(args, 2);
+    
+    id uuid = [args objectAtIndex:0];
+    id triggerBehavior = [args objectAtIndex:1];
+    
+    ENSURE_TYPE(uuid, NSString);
+    ENSURE_TYPE(triggerBehavior, NSNumber);
+    
+    SCLFlicButton *flicButton = [self flicButtonFromUUIDString:[TiUtils stringValue:uuid]];
+    
+    if (!flicButton) {
+        NSLog(@"[ERROR] Could not update trigger behavior for button with UUID = %@, the button does not seem to be active and connected.");
+        return;
+    }
+    
+    [flicButton setTriggerBehavior:[TiUtils intValue:triggerBehavior def:SCLFlicButtonTriggerBehaviorClick]];
+}
+
+- (void)updateButtonLowLatencyMode:(id)args
+{
+    ENSURE_ARG_COUNT(args, 2);
+    
+    id uuid = [args objectAtIndex:0];
+    id lowLatency = [args objectAtIndex:1];
+    
+    ENSURE_TYPE(uuid, NSString);
+    ENSURE_TYPE(lowLatency, NSNumber);
+    
+    SCLFlicButton *flicButton = [self flicButtonFromUUIDString:[TiUtils stringValue:uuid]];
+    
+    if (!flicButton) {
+        NSLog(@"[ERROR] Could not update latency for button with UUID = %@, the button does not seem to be active and connected.");
+        return;
+    }
+    
+    [flicButton setLowLatency:[TiUtils boolValue:lowLatency]];
+}
+
 - (void)forgetButton:(id)value
 {
     ENSURE_SINGLE_ARG(value, NSString);

@@ -1,4 +1,4 @@
-FRAMEWORK_SEARCH_PATHS=$(SRCROOT)/../../modules/iphone/ti.flic/1.0.2/platform "~/Library/Application\ Support/Titanium/modules/iphone/ti.flic/1.0.2/platform"
+FRAMEWORK_SEARCH_PATHS=$(SRCROOT)/../../modules/iphone/ti.flic/1.1.0/platform "~/Library/Application\ Support/Titanium/modules/iphone/ti.flic/1.1.0/platform"
 
 LD_RUNPATH_SEARCH_PATHS=$(inherited) "@executable_path/Frameworks" $(FRAMEWORK_SEARCH_PATHS)
 
