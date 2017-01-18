@@ -43,7 +43,7 @@ exports.init = function (logger, config, cli, appc) {
 function addLibrary(builder, cli, xobjs) {
 
 	var frameworkPaths = [
-		'../../modules/iphone/ti.flic/1.0.0/platform/fliclib.framework'
+		'../../modules/iphone/ti.flic/1.0.1/platform/fliclib.framework'
 	];
 
 	frameworkPaths.forEach(function (framework_path) {
