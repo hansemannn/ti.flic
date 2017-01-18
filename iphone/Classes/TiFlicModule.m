@@ -298,12 +298,12 @@
 
 - (void) flicButtonDidConnect:(SCLFlicButton * _Nonnull) button
 {
-    ENSURE_AND_FIRE_EVENT(@"flicButtonDidConnect", nil);
+    ENSURE_AND_FIRE_EVENT(@"flicButtonDidConnect", [TiFlicModule dictionaryFromFlickButton:button andError:nil]);
 }
 
 - (void) flicButtonIsReady:(SCLFlicButton * _Nonnull) button
 {
-    ENSURE_AND_FIRE_EVENT(@"flicButtonIsReady", nil);
+    ENSURE_AND_FIRE_EVENT(@"flicButtonIsReady", [TiFlicModule dictionaryFromFlickButton:button andError:nil]);
 }
 
 - (void) flicButton:(SCLFlicButton * _Nonnull) button didDisconnectWithError:(NSError * _Nullable) error
