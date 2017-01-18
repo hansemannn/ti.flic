@@ -166,7 +166,7 @@
     SCLFlicButton *flicButton = [self flicButtonFromUUIDString:value];
     
     if (!flicButton) {
-        NSLog(@"[ERROR] Could not forget button with UUID = %@, the button does not seem to be active and connected.");
+        NSLog(@"[ERROR] Could not forget button with UUID = %@, the button does not seem to be active and connected.", value);
         return;
     }
     
@@ -307,18 +307,14 @@
 
 - (SCLFlicButton *)flicButtonFromUUIDString:(NSString *)UUIDString
 {
-    NSUUID *ownUUID = [[NSUUID alloc] initWithUUIDString:UUIDString];
-    
     for (NSUUID *uuid in [[SCLFlicManager sharedManager] knownButtons]) {
         SCLFlicButton *button = [[[SCLFlicManager sharedManager] knownButtons] objectForKey:uuid];
         
-        if ([button buttonIdentifier] == ownUUID) {
-            RELEASE_TO_NIL(ownUUID);
+        if ([[[button buttonIdentifier] UUIDString] isEqualToString:UUIDString]) {
             return button;
         }
     }
     
-    RELEASE_TO_NIL(ownUUID);
     NSLog(@"[ERROR] Could not find Flic button with UUID = %@. Make sure it is reachable.", UUIDString);
     
     return nil;
