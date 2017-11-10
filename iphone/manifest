@@ -2,7 +2,7 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 1.1.0
+version: 2.0.0
 apiversion: 2
 architectures: armv7 arm64 i386 x86_64
 description: ti.flic
@@ -15,4 +15,4 @@ name: ti.flic
 moduleid: ti.flic
 guid: 217e0fd5-c0c4-413c-bafe-803226fb139a
 platform: iphone
-minsdk: 5.0.0
+minsdk: 6.2.2
